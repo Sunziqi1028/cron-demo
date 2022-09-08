@@ -13,6 +13,6 @@ message TaskReply{
   string message = 2;
 }
 
-service user {
-  rpc getUser(Req) returns(TaskReply);
+service Task {
+  rpc TaskToMonitor(Req) returns(TaskReply);
 }

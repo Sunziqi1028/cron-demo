@@ -2,8 +2,8 @@
 package types
 
 type Request struct {
-	StartTime string `json:"username"`
-	Duration  string `json:"password"`
+	StartTime string `json:"startTime"`
+	Duration  string `json:"duration"`
 	Task      string `json:"task"`
 }
 
