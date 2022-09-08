@@ -1,0 +1,17 @@
+type (
+	Request {
+		StartTime string `json:"username"`
+		Duration  string `json:"password"`
+		Task      string `json:"task"`
+	}
+
+	Response {
+		Code    int    `json:"code"`
+		Message string `json:"message"`
+	}
+)
+
+service user-api {
+	@handler taskHandler
+	post /task (Request) returns (Response)
+}

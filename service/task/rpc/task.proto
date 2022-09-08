@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package task;
+
+option go_package = "./task";
+
+message Req{
+  int64 id = 1;
+}
+
+message TaskReply{
+  int64 id = 1;
+  string message = 2;
+}
+
+service user {
+  rpc getUser(Req) returns(TaskReply);
+}
