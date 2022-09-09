@@ -1,4 +1,25 @@
 type (
+	ExcelMailRequest {
+		StartTime string `json:"startTime"`
+		Duration  string `json:"duration"`
+		Task      string `json:"task"`
+		Mail      string `json:"mail"`
+	}
+
+	MessageMailRequest {
+		StartTime string `json:"startTime"`
+		Duration  string `json:"duration"`
+		Task      string `json:"task"`
+		Mail      string `json:"mail"`
+	}
+
+	MessageWechatRequest {
+		StartTime string `json:"startTime"`
+		Duration  string `json:"duration"`
+		Task      string `json:"task"`
+		Mail      string `json:"mail"`
+	}
+
 	Request {
 		StartTime string `json:"startTime"`
 		Duration  string `json:"duration"`
@@ -12,6 +33,10 @@ type (
 )
 
 service task {
-	@handler taskHandler
-	post /task (Request) returns (Response)
+	@handler taskExcelToEmail
+	post /api/excel/mail (ExcelMailRequest) returns (Response)
+	@handler taskMessageToEmail
+	post /api/message/mail (MessageMailRequest) returns (Response)
+	@handler taskMessageToWechat
+	post /api/message/wechat (MessageWechatRequest) returns (Response)
 }

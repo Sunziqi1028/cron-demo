@@ -1,3 +1,15 @@
 Name: task
 Host: 0.0.0.0
 Port: 8888
+
+# mongo配置
+Mongodb:
+  Uri: "mongodb://127.0.0.1:27017"
+  Db: "zhihe"
+  MaxPoolSize: 2000
+
+# 邮箱配置
+Email:
+  Host: "smtp.163.com:25"
+  Username: "18351162996@163.com"
+  Password: "FTOIPNSNNBAXYQMR"

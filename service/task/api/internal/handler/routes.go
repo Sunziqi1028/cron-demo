@@ -14,8 +14,18 @@ func RegisterHandlers(server *rest.Server, serverCtx *svc.ServiceContext) {
 		[]rest.Route{
 			{
 				Method:  http.MethodPost,
-				Path:    "/task",
-				Handler: taskHandler(serverCtx),
+				Path:    "/api/excel/mail",
+				Handler: taskExcelToEmailHandler(serverCtx),
+			},
+			{
+				Method:  http.MethodPost,
+				Path:    "/api/message/mail",
+				Handler: taskMessageToEmailHandler(serverCtx),
+			},
+			{
+				Method:  http.MethodPost,
+				Path:    "/api/message/wechat",
+				Handler: taskMessageToWechatHandler(serverCtx),
 			},
 		},
 	)

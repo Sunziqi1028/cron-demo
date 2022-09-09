@@ -1,6 +1,8 @@
 package main
 
 import (
+	"cron/service/task/api/internal/global"
+	"cron/service/task/api/workqueue"
 	"flag"
 	"fmt"
 
@@ -14,6 +16,10 @@ import (
 
 var configFile = flag.String("f", "etc/task.yaml", "the config file")
 
+func init() {
+	global.WorkPools = workqueue.NewWorkerPool(global.PoolNum, global.JobQueueNum)
+	global.WorkPools.Start()
+}
 func main() {
 	flag.Parse()
 
